@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 const CategoriesContainer = () => (
   <div className="categoriesContainer">
     <Navbar />
-    <h2>Under Construction...</h2>
+    <button type="button">Check Status</button>
   </div>
 );
 
