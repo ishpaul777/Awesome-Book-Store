@@ -8,7 +8,8 @@ export default function bookReducer(state = books, action) {
       return [...state, action.book];
     }
     case REMOVE_BOOK: {
-      return state.filter((book) => book.id !== action.id);
+      const newState = state.filter((book) => book.id !== action.id);
+      return newState;
     }
     default: {
       return state;
@@ -21,7 +22,7 @@ export const AddBook = (book) => ({
   book,
 });
 
-export const RemoveBook = (book) => ({
+export const RemoveBook = (id) => ({
   type: REMOVE_BOOK,
-  id: book.id,
+  id,
 });
