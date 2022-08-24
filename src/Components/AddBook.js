@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux/es/exports';
-import { AddBook } from '../redux/books/books';
+import { addBookToServer } from '../redux/books/books';
 
 export default function AddBookForm() {
   const [book, setBook] = useState({
+    id: uuidv4(),
     title: '',
     author: '',
-    id: uuidv4(),
+    category: '',
   });
   const handleChange = (e) => {
     setBook((prevBook) => ({ ...prevBook, [e.target.name]: e.target.value }));
@@ -15,17 +16,18 @@ export default function AddBookForm() {
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!book.author || !book.title) {
+    if (!book.author || !book.title || !book.category || book.category === '-- Choose --') {
       // eslint-disable-next-line no-alert
       alert('Please fill in all the fields..');
       return;
     }
     setBook((prevBook) => ({ ...prevBook, id: uuidv4() }));
-    dispatch(AddBook(book));
+    dispatch(addBookToServer(book));
     setBook((prevBook) => ({
       ...prevBook,
       title: '',
       author: '',
+      category: '',
     }));
   };
   return (
@@ -49,6 +51,24 @@ export default function AddBookForm() {
             className="userInput Title"
             onChange={handleChange}
           />
+          <label
+            htmlFor="selectCategory"
+          >
+            Category
+            <select
+              value={book.category}
+              onChange={handleChange}
+              name="category"
+              id="selectCategory"
+            >
+              <option>-- Choose --</option>
+              <option>Business</option>
+              <option>Self-Help & Growth</option>
+              <option>Fiction</option>
+              <option>Action</option>
+              <option>Other</option>
+            </select>
+          </label>
         </div>
         <button type="submit" className="addBookButton">
           Add Book
