@@ -1,13 +1,26 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Navbar from './Navbar';
 import Book from './Book';
 import AddBookForm from './AddBook';
+import { getBooksFromServer } from '../redux/books/books';
 
 const BooksContainer = () => {
   const books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBooksFromServer());
+  }, [dispatch]);
+
   const BookElements = books.map((book) => (
-    <Book key={book.id} author={book.author} title={book.title} id={book.id} />
+    <Book
+      key={book.id}
+      author={book.author}
+      title={book.title}
+      category={book.category}
+      id={book.id}
+    />
   ));
   return (
     <div>
