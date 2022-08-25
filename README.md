@@ -1,4 +1,4 @@
-
+# Awesome Bookstore
  > Book Store is a website for all Book Reader. It is a Single Page App (SPA) that allows users to:
 - Store the Books.
 - Update the status of what they are reading.
@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-A live version of the website can be seen [here](https://ishpaul777.github.io//)
+A live version of the website can be seen [here](https://awsmbookstore.netlify.app)
 
 ## Getting Started
 
