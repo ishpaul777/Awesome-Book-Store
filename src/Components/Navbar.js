@@ -7,10 +7,14 @@ const styles = {
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    height: '70px',
-    paddingLeft: '100px',
+    height: '80px',
     backgroundColor: '#ffffff',
-    boxShadow: '5px 24px 29px 0px rgba(156,156,156,1)',
+    // boxShadow: '2px 18px 18px 0px rgba(156,156,156,1)',
+  },
+  navContainer: {
+    display: 'flex',
+    marginLeft: '200px',
+    gap: '100px',
   },
   logoContainer: {
     display: 'flex',
@@ -23,7 +27,7 @@ const styles = {
   },
 
   logoTextStyles: {
-    fontSize: '23px',
+    fontSize: '28px',
     display: 'inline',
     color: '#0290ff',
   },
@@ -43,22 +47,24 @@ const styles = {
 };
 
 const {
-  navStyles, logoContainer, logoTextStyles, navLinksContainer, navLinks,
+  navStyles, navContainer, logoContainer, logoTextStyles, navLinksContainer, navLinks,
 } = styles;
 
 const Navbar = () => (
   <nav style={navStyles}>
-    <div style={logoContainer}>
-      <h1 style={logoTextStyles}>Book Store</h1>
+    <div style={navContainer}>
+      <div style={logoContainer}>
+        <h1 style={logoTextStyles}>Book Store</h1>
+      </div>
+      <ul style={navLinksContainer}>
+        <li>
+          <Link style={navLinks} to="/">Books</Link>
+        </li>
+        <li>
+          <Link style={navLinks} to="/Categories">Categories</Link>
+        </li>
+      </ul>
     </div>
-    <ul style={navLinksContainer}>
-      <li>
-        <Link style={navLinks} to="/">Books</Link>
-      </li>
-      <li>
-        <Link style={navLinks} to="/Categories">Categories</Link>
-      </li>
-    </ul>
   </nav>
 );
 

@@ -9,8 +9,15 @@ const CategoriesContainer = () => {
   return (
     <div className="categoriesContainer">
       <Navbar />
-      <button type="button" onClick={() => dispatch(checkStatus())}>Check Status</button>
-      <h2>{state || null }</h2>
+      <button
+        style={{ margin: '0 45vw' }}
+        type="button"
+        className="btn submit--btn"
+        onClick={() => dispatch(checkStatus())}
+      >
+        Check Status
+      </button>
+      <h2 style={{ textAlign: 'center', margin: '20px', color: '#0290ff' }}>{state || null}</h2>
     </div>
   );
 };

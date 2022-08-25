@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import baseUrl from './api';
 
@@ -36,9 +37,12 @@ export const addBookToServer = createAsyncThunk(
         item_id: book.id,
         title: book.title,
         author: book.author,
-        category: book.category,
+        category: {
+          category: book.category,
+          currentChapter: book.currentChapter,
+          totalChapter: book.totalChapter,
+        },
       }),
-
     };
     await fetch(`${baseUrl}books`, param);
     return book;
@@ -49,14 +53,18 @@ export const getBooksFromServer = createAsyncThunk(
   SET_BOOKS,
   async () => {
     const response = await fetch(`${baseUrl}books`).then((response) => response.json());
+    // response = {...response, }
     const books = [];
-    const booksIds = Object.keys(response);
-    booksIds.map((key) => books.push({
-      id: key,
-      title: response[key][0].title,
-      author: response[key][0].author,
-      category: response[key][0].category,
-    }));
+    Object.keys(response).forEach((key) => {
+      books.push({
+        id: key,
+        title: response[key][0].title,
+        author: response[key][0].author,
+        category: response[key][0].category.category,
+        currentChapter: response[key][0].category.currentChapter,
+        totalChapter: response[key][0].category.totalChapter,
+      });
+    });
     const sortedBooks = books.sort((a, b) => a.title.localeCompare(b.title));
     return sortedBooks;
   },
