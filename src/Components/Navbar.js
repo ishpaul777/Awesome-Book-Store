@@ -54,7 +54,7 @@ const Navbar = () => (
   <nav style={navStyles}>
     <div style={navContainer}>
       <div style={logoContainer}>
-        <h1 style={logoTextStyles}>Book Store</h1>
+        <h1 style={logoTextStyles}>Bookstore CMS</h1>
       </div>
       <ul style={navLinksContainer}>
         <li>
