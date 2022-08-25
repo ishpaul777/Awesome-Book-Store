@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BooksContainer from './Components/BookContainer';
 import CategoriesContainer from './Components/CategoriesContainer';
 // import store from './redux/configureStore';
-import './App.css';
+import './styles/App.css';
 
 function App() {
   return (

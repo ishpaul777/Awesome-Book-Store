@@ -1,0 +1,39 @@
+.add--book--form--container {
+  width: 60vw;
+  margin: 20px 0;
+}
+
+.add--book--form--heading {
+  margin-bottom: 20px;
+  font-size: 1.75rem;
+  font-weight: bold;
+  letter-spacing: -0.18px;
+  color: #888;
+}
+
+.add--book--form--input--fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 5vw;
+  row-gap: 2rem;
+}
+
+.add--book--form--input--fields input {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: solid 1px #b7b3b3;
+  background-color: #fff;
+  outline: 0;
+}
+
+.add--book--form--input--fields input:nth-of-type(1) {
+  grid-column: 1/ span 2;
+}
+
+#selectCategory {
+  padding: 8px;
+  border: solid 1px #b7b3b3;
+  background-color: #fff;
+  font-size: 1rem;
+}
